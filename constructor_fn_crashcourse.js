@@ -7,39 +7,43 @@ function Dog(name, owner) {
   this.mood = "Calm"
 }
 
+// add methods that affect a dog to the Dog prototype
+Dog.prototype.play = function () {
+  this.mood = "Happy"
+  this.smell = "Smells like Dog"
+}
+
+Dog.prototype.wash = function () {
+  if (this.smell !== "Clean") {
+    console.log(this.name, "gets a bath")
+    this.smell = "Clean"
+    this.mood = "Down"
+  } else {
+    console.log(this.name, "does not need a bath")
+  }
+}
+
 // create Molly
 let molly = new Dog("Molly", "Carlos")
   // creates an empty object
   // gives that object to the constructor fn (i.e. Dog())
   // Dog() then modifies that object
+  // that object gets the Dog() prototype
   // Dog() automatically returns this object
 
 console.log(molly)
-
-function play(dog) {
-  dog.mood = "Happy"
-  dog.smell = "Smells like Dog"
-}
-
-play(molly)
+molly.play()
 console.log(molly)
 
 let iago = new Dog("Iago", "Berto")
 iago.toy = "Chewed rabbit"
 console.log(iago)
-play(iago)
+iago.play()
 console.log(iago)
 
-function wash(dog) {
-  if (dog.smell !== "Clean") {
-    console.log(dog.name, "gets a bath")
-    dog.smell = "Clean"
-    dog.mood = "Down"
-  } else {
-    console.log(dog.name, "does not need a bath")
-  }
-}
-
-wash(iago)
+iago.wash()
 console.log(iago)
-wash(iago)
+iago.wash()
+
+molly.wash()
+console.log(molly)
