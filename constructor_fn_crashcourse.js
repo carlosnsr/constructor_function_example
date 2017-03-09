@@ -41,6 +41,9 @@ console.log(iago)
 iago.play()
 console.log(iago)
 
+iago.wash = function () {
+  console.log(`${this.name} is always "Clean"`)
+}
 iago.wash()
 console.log(iago)
 iago.wash()
